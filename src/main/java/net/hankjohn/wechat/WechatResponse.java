@@ -1,7 +1,7 @@
 package net.hankjohn.wechat;
 
 public class WechatResponse {
-    private static final String BASE_URL = "http://hankjohn.net/tag/";
+    private static final String BASE_URL = "http://hankjohn.net/tag?picId=";
     private WechatMessage message;
 
     public WechatResponse(WechatMessage message) {
@@ -21,7 +21,12 @@ public class WechatResponse {
         return "AutoTagger";
     }
     public String getDescription() {
-        return "Copyleft@...";
+        WechatDB.TagItem item = WechatDB.getInstance().getItem(getToUserName());
+        if (item != null && item.getDescription() != null) {
+            return item.getDescription();
+        } else {
+            return "Copyleft@" + getFromUserName() + ":" + getToUserName();
+        }
     }
     public String getFromUserName() {
         return message.getToUserName();
