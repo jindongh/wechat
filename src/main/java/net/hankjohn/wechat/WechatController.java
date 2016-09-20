@@ -23,7 +23,7 @@ public class WechatController {
 
     private WechatMessageParser parser = new WechatMessageParser();
 
-    @RequestMapping(value = "/wechat",
+    @RequestMapping(value = "/weixin",
             method=RequestMethod.GET,
             produces = "text/plain")
     public @ResponseBody String sign(
@@ -38,7 +38,7 @@ public class WechatController {
         }
     }
 
-    @RequestMapping(value = "/wechat", method=RequestMethod.POST)
+    @RequestMapping(value = "/weixin", method=RequestMethod.POST)
     public @ResponseBody String dispose(@RequestBody String requestBody) {
         try {
             WechatMessage message = parser.parseMessage(requestBody);
