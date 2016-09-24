@@ -1,5 +1,7 @@
 package net.hankjohn.wechat;
 
+import net.hankjohn.wechat.db.WechatDB;
+
 public class WechatMessageHandler {
 
     WechatDB db = WechatDB.getInstance();
@@ -9,12 +11,12 @@ public class WechatMessageHandler {
         WechatResponse response = new WechatResponse(message);
         if (message.getMsgType().equals(WechatMessage.TEXT)) {
             if (message.getContent().startsWith("http")) {
-                db.setUrl(message.getFromUserName(), message.getContent());
+                db.setTagMessage(message.getFromUserName(), message.getContent());
             } else {
-                db.setDescription(message.getFromUserName(), message.getContent());
+                db.setTagTitle(message.getFromUserName(), message.getContent());
             }
         } else if (message.getMsgType().equals(WechatMessage.IMAGE)) {
-            db.setPicUrl(message.getFromUserName(), message.getContent());
+            db.addImage(message.getFromUserName(), message.getContent());
         }
         return response;
     }

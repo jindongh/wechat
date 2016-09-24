@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>iTag</title>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/jquery.hotspot.css"/>
+    </head>
+    <body>
+        <div id="hotspotImage">
+            <img th:src="${imageUrl}"/>
+        </div>
+
+        <script type="text/javascript" src="/js/jquery.hotspot.js"></script>
+        <script th:inline="javascript">
+/*<![CDATA[*/
+            var imageId=[[${imageId}]];
+/*]]>*/
+            $("#hotspotImage").hotspot({
+                    mode: "admin",
+                    LS_Variable: "HotspotPlugin-b",
+                    done_btnId: 'done-b',
+                    remove_btnId: 'remove-b',
+                    server_btnId: 'server-b',
+
+                    done_btnClass: 'btn btn-success controls',
+                    remove_btnClass: 'btn btn-danger controls',
+                    sync_btnClass: 'btn btn-info controls',
+                    ajax: true,
+                    ajaxOptions: {
+                        url: '/tags/' + imageId,
+                        type: 'POST',
+                        dataType: 'text'
+                        },
+                    afterSave: function(message) {
+                    },
+                    afterRemove: function(message) {
+                    },
+                    afterSyncToServer: function(message) {
+                        window.location.reload();
+                    }
+                    });
+        </script>
+    </body>
+
+</html>

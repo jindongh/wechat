@@ -21,12 +21,7 @@ public class WechatResponse {
         return "iTag";
     }
     public String getDescription() {
-        WechatDB.TagItem item = WechatDB.getInstance().getItem(getToUserName());
-        if (item != null && item.getDescription() != null) {
-            return item.getDescription();
-        } else {
-            return "Please send link and description. Copyleft@AI-Tag.com";
-        }
+        return "Please send description and link, Copyleft@iTag.com";
     }
     public String getFromUserName() {
         return message.getToUserName();
