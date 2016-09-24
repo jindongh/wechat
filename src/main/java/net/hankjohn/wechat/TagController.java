@@ -51,17 +51,4 @@ public class TagController {
             return tagList;
         }
     }
-
-    @RequestMapping(value="/tag")
-    public void tag(@RequestParam("imageId") String imageId,
-            @RequestParam("x") int x,
-            @RequestParam("y") int y,
-            @RequestParam("title") String title,
-            @RequestParam("message") String message) {
-        db.addTag(imageId,
-                x,
-                y,
-                title,
-                message);
-    }
 }

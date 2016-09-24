@@ -12,5 +12,7 @@ public class TagItem {
     private final String title;
     @JsonProperty("Message")
     private final String message;
+    @JsonProperty("Link")
+    private final String link;
 }
 

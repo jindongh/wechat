@@ -186,14 +186,12 @@
 				var htmlBuilt = $('<div/>').addClass(widget.config.hiddenClass);
 			}
 			
-
-			$.each(dataBuild, function(index, val) {
-				if (typeof val === "string") {
-					$('<div/>', {
-						html: val
-					}).addClass('Hotspot_' + index).appendTo(htmlBuilt);
-				};
-			});
+            $('<div/>', {
+                html: '<a target=_blank href='+dataBuild['Link']+">"+dataBuild['Title']+"</a>"
+            }).addClass('Hotspot_Title').appendTo(htmlBuilt);
+            $('<div/>', {
+                html: dataBuild['Message']
+            }).addClass('Hotspot_Message').appendTo(htmlBuilt);
 
 			var div = $('<div/>', {
 				html: htmlBuilt
@@ -274,13 +272,12 @@
 				var htmlBuilt = $('<div/>').addClass(this.config.hiddenClass);
 			}
 
-			$.each(el, function(index, val) {
-				if (typeof val === "string") {
-					$('<div/>', {
-						html: val
-					}).addClass('Hotspot_' + index).appendTo(htmlBuilt);
-				};
-			});
+            $('<div/>', {
+                html: '<a target=_blank href='+el['Link']+">"+el['Title']+"</a>"
+            }).addClass('Hotspot_Title').appendTo(htmlBuilt);
+            $('<div/>', {
+                html: el['Message']
+            }).addClass('Hotspot_Message').appendTo(htmlBuilt);
 
 			var div = $('<div/>', {
 				html: htmlBuilt

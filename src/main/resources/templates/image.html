@@ -29,6 +29,20 @@
                         type: 'POST',
                         dataType: 'text'
                         },
+                    dataStuff: [
+                        {
+                            "property": "Title",
+                            "default": "iTag Title"
+                        },
+                        {
+                            "property": "Message",
+                            "default": "iTag Description"
+                        },
+                        {
+                            "property": "Link",
+                            "default": "http://itag.com/" + imageId
+                        }
+                    ],
                     afterSave: function(message) {
                     },
                     afterRemove: function(message) {

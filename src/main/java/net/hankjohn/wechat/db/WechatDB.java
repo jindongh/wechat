@@ -17,8 +17,8 @@ public class WechatDB {
         // Fake data
         images.put("test", new ImageItem("test.png"));
         tags.put("test", Arrays.asList(
-                    new TagItem(50, 50, "Title", "Message"),
-                    new TagItem(100, 100, "Title2", "Message2")
+                    new TagItem(50, 50, "Title", "Message", "http://itag.com/image/1"),
+                    new TagItem(100, 100, "Title2", "Message2", "http://itag.com/image/2")
                     ));
     }
 
@@ -44,12 +44,13 @@ public class WechatDB {
             int x,
             int y,
             String title,
-            String message) {
+            String message,
+            String link) {
         if (!tags.containsKey(imageId)) {
             tags.put(imageId, new ArrayList<TagItem>());
         }
         removeTag(imageId, x, y);
-        tags.get(imageId).add(new TagItem(x, y, title, message));
+        tags.get(imageId).add(new TagItem(x, y, title, message, link));
     }
 
     public void removeTag(String imageId,
@@ -70,10 +71,10 @@ public class WechatDB {
     }
 
     public void setTagTitle(String imageId, String title) {
-        addTag(imageId, 0, 0, title, "TODO");
+        addTag(imageId, 0, 0, title, "TODO", "TODO");
     }
 
     public void setTagMessage(String imageId, String message) {
-        addTag(imageId, 0, 0, "TODO", message);
+        addTag(imageId, 0, 0, "TODO", message, "TODO");
     }
 }
