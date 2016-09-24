@@ -44,6 +44,9 @@ public class TagController {
             return new ArrayList<TagItem>();
         } else {
             List<TagItem> tagList = db.listTags(imageId);
+            if (tagList == null) {
+                tagList = new ArrayList<>();
+            }
             System.out.println("Get num " + tagList.size());
             return tagList;
         }

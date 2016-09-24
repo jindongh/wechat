@@ -1,7 +1,7 @@
 package net.hankjohn.wechat;
 
 public class WechatResponse {
-    private static final String BASE_URL = "http://hankjohn.net/tag?picId=";
+    private static final String BASE_URL = "http://hankjohn.net/image?imageId=";
     private WechatMessage message;
 
     public WechatResponse(WechatMessage message) {
