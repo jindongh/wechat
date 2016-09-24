@@ -18,14 +18,14 @@ public class WechatResponse {
         return "news";
     }
     public String getTitle() {
-        return "AutoTagger";
+        return "iTag";
     }
     public String getDescription() {
         WechatDB.TagItem item = WechatDB.getInstance().getItem(getToUserName());
         if (item != null && item.getDescription() != null) {
             return item.getDescription();
         } else {
-            return "Copyleft@" + getFromUserName() + ":" + getToUserName();
+            return "Please send link and description. Copyleft@AI-Tag.com";
         }
     }
     public String getFromUserName() {

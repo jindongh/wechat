@@ -28,7 +28,11 @@ public class WechatDB {
 
     public void setPicUrl(String userName, String picUrl) {
         createUserIfNotExist(userName);
-        items.get(userName).setPicUrl(picUrl);
+        TagItem item = items.get(userName);
+        item.setPicUrl(picUrl);
+        // reset url and description.
+        item.setUrl(null);
+        item.setDescription(null);
     }
 
     public void setUrl(String userName, String url) {

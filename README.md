@@ -1,3 +1,7 @@
 # wechat
 
-sudo setcap 'cap_net_bind_service=+ep' /usr/lib/jvm/java-8-oracle/jre/bin/java
+sudo apt-get install haveged
+
+sudo mvn spring-boot:run -Drun.jvmArguments='-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true' &
+
+
